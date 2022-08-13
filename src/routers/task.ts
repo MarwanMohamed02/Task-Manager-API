@@ -1,7 +1,6 @@
 import express from "express"
 const taskRouter = express.Router();
 import { Task } from "../db/models/taskModel"
-import { User, IUser } from "../db/models/userModel";
 import { auth, authRequest } from "../middleware/auth";
 
 
