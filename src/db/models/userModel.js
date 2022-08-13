@@ -88,9 +88,9 @@ userSchema.statics.genAuthToken = async function (user) {
 };
 // Reading Profile
 userSchema.statics.getPublicProfile = function (user) {
-    const { id, age, name, email } = user;
+    const { _id, age, name, email } = user;
     return {
-        id,
+        _id,
         age,
         name,
         email

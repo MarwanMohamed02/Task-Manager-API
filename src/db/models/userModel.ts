@@ -16,7 +16,7 @@ type Token = {
 }
 
 interface publicData {
-    id: string,
+    _id: string,
     name: string,
     age: number,
     email:string,
@@ -139,9 +139,9 @@ userSchema.statics.genAuthToken = async function (user: IUser): Promise<string> 
 
 // Reading Profile
 userSchema.statics.getPublicProfile = function (user: IUser): publicData {
-    const { id, age, name, email } = user;
+    const { _id, age, name, email } = user;
     return {
-        id,
+        _id,
         age,
         name,
         email
