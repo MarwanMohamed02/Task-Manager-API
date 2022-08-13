@@ -13,12 +13,13 @@ import { greetUser, sendCancellationEmail } from "../emails/account"
 userRouter.post("/users", async (req, res) => {
     const user = new User(req.body);
 
-    greetUser(user);
 
     try {
         await user.save();
         
         const token = await User.genAuthToken(user);
+
+        greetUser(user);
 
         res.status(201).send({user: User.getPublicProfile(user), token});
     }

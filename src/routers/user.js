@@ -16,10 +16,10 @@ const account_1 = require("../emails/account");
 // POST
 userRouter.post("/users", async (req, res) => {
     const user = new userModel_1.User(req.body);
-    (0, account_1.greetUser)(user);
     try {
         await user.save();
         const token = await userModel_1.User.genAuthToken(user);
+        (0, account_1.greetUser)(user);
         res.status(201).send({ user: userModel_1.User.getPublicProfile(user), token });
     }
     catch (err) {
